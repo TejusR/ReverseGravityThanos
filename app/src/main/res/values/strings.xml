@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reverse Gravity Thanos</string>
+    <string name="hackermode_button">HackerMode</string>
 </resources>
