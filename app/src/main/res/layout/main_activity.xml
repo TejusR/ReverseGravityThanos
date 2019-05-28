@@ -10,14 +10,14 @@
 
     <ImageView
         android:id="@+id/powerStone"
-        android:layout_width="65dp"
-        android:layout_height="63dp"
+        android:layout_width="96dp"
+        android:layout_height="78dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/power_gem" />
+        app:srcCompat="@drawable/power_stone" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="100dp" />
 
     <Button
         android:id="@+id/hackermode"
@@ -31,6 +31,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:textSize="30sp" />
 </LinearLayout>
