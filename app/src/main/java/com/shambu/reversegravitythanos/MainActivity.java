@@ -1,6 +1,7 @@
 package com.shambu.reversegravitythanos;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -8,21 +9,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     int c=0;
+    private long backpresstime;
+    private Toast backToast;
     private ImageView vstone;
     private ObjectAnimator objani;
-    private TextView coors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         vstone=(ImageView)findViewById(R.id.powerStone);
-        coors = (TextView)findViewById(R.id.textView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(backpresstime + 2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else{
+            backToast = Toast.makeText(getApplicationContext(),"Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backpresstime = System.currentTimeMillis();
     }
 
 
@@ -45,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 objani.start();
             }
             c++;
-            coors.setText("Y: "+height);
         }
         else {
             if (c % 2 == 0) {
@@ -59,10 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 objani.start();
             }
             c++;
-            coors.setText("Y: "+height);
         }
 
 
+        }
+
+        public void hkermode(View view){
+         startActivity(new Intent(MainActivity.this, hackermode.class));
         }
 
 
