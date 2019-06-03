@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        vstone=(ImageView)findViewById(R.id.powerStone);
+        vstone=findViewById(R.id.powerStone);
     }
 
     @Override
@@ -85,12 +85,16 @@ public class MainActivity extends AppCompatActivity {
         else {
             if (c % 2 == 0) {
                 objani = ObjectAnimator.ofFloat(vstone, "y", height);
-                objani.setDuration(2000);
+                objani.setDuration(3000);
+                objani.setInterpolator(new AccelerateInterpolator());
+                objani.setInterpolator(new BounceInterpolator());
                 objani.start();
             }
             if (c % 2 == 1) {
                 objani = ObjectAnimator.ofFloat(vstone, "y", 0);
-                objani.setDuration(2000);
+                objani.setDuration(3000);
+                objani.setInterpolator(new AccelerateInterpolator());
+                objani.setInterpolator(new BounceInterpolator());
                 objani.start();
             }
             c++;
