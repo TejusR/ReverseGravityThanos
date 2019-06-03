@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -66,12 +68,16 @@ public class MainActivity extends AppCompatActivity {
         if(orientation== Configuration.ORIENTATION_PORTRAIT) {
             if (c % 2 == 0) {
                 objani = ObjectAnimator.ofFloat(vstone, "y", height);
-                objani.setDuration(2000);
+                objani.setDuration(3000);
+                objani.setInterpolator(new AccelerateInterpolator());
+                objani.setInterpolator(new BounceInterpolator());
                 objani.start();
             }
             if (c % 2 == 1) {
                 objani = ObjectAnimator.ofFloat(vstone, "y", 0);
-                objani.setDuration(2000);
+                objani.setDuration(3000);
+                objani.setInterpolator(new AccelerateInterpolator());
+                objani.setInterpolator(new BounceInterpolator());
                 objani.start();
             }
             c++;
